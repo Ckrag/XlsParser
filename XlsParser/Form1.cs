@@ -52,15 +52,14 @@ namespace XlsParser
                         {
                             doc.NewPage();
                         }
-                        string name = row["Person"];
-                        string city = row["Postnr og By"];
-                        string address = row["Adresse"];
 
-                        doc.Add(new Phrase(name));
+                        doc.Add(new Phrase(row["Kommune"]));
                         doc.Add(new Phrase(Environment.NewLine));
-                        doc.Add(new Phrase(address));
+                        doc.Add(new Phrase(row["Adresse"]));
                         doc.Add(new Phrase(Environment.NewLine));
-                        doc.Add(new Phrase(city));
+                        doc.Add(new Phrase(row["Postnr og By"]));
+                        doc.Add(new Phrase(Environment.NewLine));
+                        doc.Add(new Phrase("Att. " + row["Postnr og By"]));
 
                         page_counter++;
 
